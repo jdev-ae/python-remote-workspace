@@ -25,5 +25,5 @@
 
 # group matching
 ```
-![img_002](./res/regx_002.png)
+![img_002](./res/regx_002.png | width=100)
 
