@@ -14,7 +14,7 @@
 | 2010-09-02 | 2019-2-2   |
 | 2019-12-13 | 2010-09-32 |
 
-#### Date now +/- y m m
+#### Date now +/- y m d
 
 ```bash
 ^now ?(-|\+) ?((\d+)y)? ?((\d+)m)? ?((\d+)d)?$
@@ -25,5 +25,7 @@
 
 # group matching
 ```
-![img_002](./res/regx_002.png | width=100)
+![img_002](./res/regx_002.png)
+
+
 
