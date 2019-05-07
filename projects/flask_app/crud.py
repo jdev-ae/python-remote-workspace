@@ -8,10 +8,16 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 basedir = os.path.abspath(os.path.dirname(__file__))
+
+# flask config
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'crud.sqlite')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
+
+# for db config
 db = SQLAlchemy(app)
+
+# for json serialize or deserialize
 ma = Marshmallow(app)
 
 
@@ -27,7 +33,6 @@ class User(db.Model):
 
 class UserSchema(ma.Schema):
     class Meta:
-        # Fields to expose
         fields = ('username', 'email')
 
 
