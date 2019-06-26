@@ -1,21 +1,27 @@
-from flask import Flask, render_template, flash, redirect, url_for
-from flask_sqlalchemy import SQLAlchemy
+from flask import render_template, flash, redirect, url_for
+from flaskblog.forms import RegistrationForm, LoginForm
+from flaskblog import app
 
-import test_data
-from blog_forms import RegistrationForm, LoginForm
-
-app = Flask(__name__)
-
-app.config['SECRET_KEY'] = '6d0e21d41cbc2309e3656ab929ad21f2'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog_dev.db'
-
-db = SQLAlchemy(app)
+test_posts = [
+    {
+        'author': 'Surendra',
+        'title': 'The first post',
+        'content': 'This is the first post',
+        'date_posted': 'June 26, 2019'
+    },
+    {
+        'author': 'Surendra',
+        'title': 'Welcome',
+        'content': 'The flask demo app',
+        'date_posted': 'June 27, 2019'
+    }
+]
 
 
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template('home.html', posts=test_data.posts, title='My Posts')
+    return render_template('home.html', posts=test_posts, title='My Posts')
 
 
 @app.route('/about')
@@ -48,7 +54,3 @@ def login():
         else:
             flash('Login failed', 'danger')
     return render_template('login.html', title='Login', form=form)
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
