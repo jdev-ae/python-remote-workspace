@@ -1,4 +1,5 @@
 from flask import Flask, render_template, flash, redirect, url_for
+from flask_sqlalchemy import SQLAlchemy
 
 import test_data
 from blog_forms import RegistrationForm, LoginForm
@@ -6,6 +7,9 @@ from blog_forms import RegistrationForm, LoginForm
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = '6d0e21d41cbc2309e3656ab929ad21f2'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog_dev.db'
+
+db = SQLAlchemy(app)
 
 
 @app.route("/")
