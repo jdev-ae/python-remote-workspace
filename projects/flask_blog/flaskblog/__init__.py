@@ -7,6 +7,10 @@ app = Flask(__name__)
 
 app.config['SECRET_KEY'] = '6d0e21d41cbc2309e3656ab929ad21f2'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///dev_db.db'
+# to remove annoying waring in console
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# debug sql
+app.config['SQLALCHEMY_ECHO'] = True
 
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)

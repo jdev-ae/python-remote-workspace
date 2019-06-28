@@ -195,3 +195,4 @@ dmypy.json
 .pyre/
 
 /.idea/
+/flaskblog/static/profile_images/
